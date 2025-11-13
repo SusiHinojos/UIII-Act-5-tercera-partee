@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Agregar Cliente</h2>
+<form method="POST">
+    {% csrf_token %}
+    <input class="form-control mb-2" type="text" name="nombre" placeholder="Nombre">
+    <input class="form-control mb-2" type="text" name="apellido" placeholder="Apellido">
+    <input class="form-control mb-2" type="text" name="telefono" placeholder="Teléfono">
+    <input class="form-control mb-2" type="email" name="correo" placeholder="Correo">
+    <input class="form-control mb-3" type="number" name="id_atr" placeholder="ID Atracción (opcional)">
+    <button class="btn btn-success">Guardar Cliente</button>
+</form>
+{% endblock %}

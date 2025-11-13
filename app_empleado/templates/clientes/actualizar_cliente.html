@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Actualizar Cliente</h2>
+<form method="POST" action="{% url 'realizar_actualizacion_cliente' cliente.id_cli %}">
+    {% csrf_token %}
+    <input class="form-control mb-2" type="text" name="nombre" value="{{ cliente.nombre }}" placeholder="Nombre">
+    <input class="form-control mb-2" type="text" name="apellido" value="{{ cliente.apellido }}" placeholder="Apellido">
+    <input class="form-control mb-2" type="text" name="telefono" value="{{ cliente.telefono }}" placeholder="Teléfono">
+    <input class="form-control mb-2" type="email" name="correo" value="{{ cliente.correo }}" placeholder="Correo">
+    <input class="form-control mb-3" type="number" name="id_atr" value="{{ cliente.id_atr }}" placeholder="ID Atracción (opcional)">
+    <button class="btn btn-success">Guardar Cambios</button>
+    <a class="btn btn-secondary" href="{% url 'ver_cliente' %}">Cancelar</a>
+</form>
+{% endblock %}

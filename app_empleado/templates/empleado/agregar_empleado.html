@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Agregar Empleado</h2>
+<form method="POST">{% csrf_token %}
+  <input class="form-control mb-2" type="text" name="nombre" placeholder="Nombre" required>
+  <input class="form-control mb-2" type="text" name="apellido" placeholder="Apellido" required>
+  <input class="form-control mb-2" type="text" name="puesto" placeholder="Puesto" required>
+  <input class="form-control mb-2" type="text" name="telefono" placeholder="Teléfono" required>
+  <input class="form-control mb-2" type="number" name="salario" step="0.01" placeholder="Salario" required>
+  <input class="form-control mb-3" type="number" name="id_atr" placeholder="ID Atracción">
+  <button class="btn btn-success">Guardar</button>
+</form>
+{% endblock %}

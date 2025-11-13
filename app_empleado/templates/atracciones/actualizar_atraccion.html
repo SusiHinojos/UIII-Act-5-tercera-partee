@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Actualizar Atracción</h2>
+<form method="POST" action="{% url 'realizar_actualizacion_atraccion' atraccion.id_atr %}">
+    {% csrf_token %}
+    <input class="form-control mb-2" type="text" name="nombre" value="{{ atraccion.nombre }}" placeholder="Nombre">
+    <input class="form-control mb-2" type="text" name="tipo" value="{{ atraccion.tipo }}" placeholder="Tipo">
+    <input class="form-control mb-2" type="number" name="capacidad" value="{{ atraccion.capacidad }}" placeholder="Capacidad">
+    <input class="form-control mb-2" type="text" name="estado" value="{{ atraccion.estado }}" placeholder="Estado">
+    <input class="form-control mb-2" type="number" step="0.01" name="altura_min" value="{{ atraccion.altura_min }}" placeholder="Altura mínima">
+    <input class="form-control mb-3" type="number" name="id_emp" value="{{ atraccion.id_emp }}" placeholder="ID Empleado">
+    <button class="btn btn-success">Guardar Cambios</button>
+    <a class="btn btn-secondary" href="{% url 'ver_atraccion' %}">Cancelar</a>
+</form>
+{% endblock %}

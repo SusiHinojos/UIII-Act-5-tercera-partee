@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Clientes</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Teléfono</th>
+            <th>Correo</th>
+            <th>Fecha Registro</th>
+            <th>ID Atracción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cli in clientes %}
+        <tr>
+            <td>{{ cli.id_cli }}</td>
+            <td>{{ cli.nombre }}</td>
+            <td>{{ cli.apellido }}</td>
+            <td>{{ cli.telefono }}</td>
+            <td>{{ cli.correo }}</td>
+            <td>{{ cli.fecha_reg }}</td>
+            <td>{{ cli.id_atr }}</td>
+            <td>
+                <a class="btn btn-sm btn-warning" href="{% url 'actualizar_cliente' cli.id_cli %}">Editar</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'borrar_cliente' cli.id_cli %}">Borrar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="8">No hay clientes todavía.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="{% url 'agregar_cliente' %}">+ Nuevo Cliente</a>
+{% endblock %}

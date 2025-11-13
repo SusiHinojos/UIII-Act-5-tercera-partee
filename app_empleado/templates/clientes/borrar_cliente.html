@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Confirmar borrado</h2>
+<p>¿Deseas eliminar al cliente <strong>{{ cliente.nombre }} {{ cliente.apellido }}</strong> (ID: {{ cliente.id_cli }})?</p>
+<form method="post" action="{% url 'borrar_cliente' cliente.id_cli %}">
+    {% csrf_token %}
+    <button class="btn btn-danger">Si, borrar</button>
+    <a class="btn btn-secondary" href="{% url 'ver_cliente' %}">No, regresar</a>
+</form>
+{% endblock %}
